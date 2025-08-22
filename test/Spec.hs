@@ -66,23 +66,53 @@ testPartOne =
         let testCases =
               [ ( HighCard,
                   [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 7 @ H]],
-                  [[2 @ H, 2 @ D, 3 @ H, 4 @ H, 5 @ H]]
+                  [[2 @ H, 2 @ D, 3 @ H, 4 @ H, 5 @ H],
+                  [A @ H, A @ D, A @ H, 2 @ H, 3 @ H], -- my own test 
+                  [K @ D, K @ C, 2 @ C, 2 @ H], -- my own test 
+                  [K @ D, Q @ S, K @ H, K @ C], -- my own test 
+                  [2 @ H, 2 @ D, 2 @ C, 3 @ D, 3 @ H], -- my own test 
+                  [10 @ H, J @ H, Q @ H, K @ H, A @ H], -- my own test 
+                  [2 @ H, 3 @ D, 4 @ C, 5 @ S, 6 @ H], -- my own test 
+                  [2 @ H, 3 @ H, 4 @ H, 5 @ H, 6 @ H] -- my own test 
+                  ]
                 ),
                 ( Pair,
                   [ [2 @ H, 2 @ D, 3 @ H, 4 @ H, 5 @ H],
-                    [A @ H, A @ D, A @ H, 2 @ H, 3 @ H]
+                    [A @ H, A @ D, A @ H, 2 @ H, 3 @ H],
+                    [A @ H, 3 @ H, 3 @ C], -- my own test 
+                    [J @ H, J @ C] -- my own test 
                   ],
-                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H]]
+                  [
+                    [2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
+                    [3 @ H], -- my own test 
+                    [5 @ D, 3 @ H, J @ C],  -- my own test 
+                    [K @ D, Q @ H ] -- my own test 
+                  ]
                 ),
                 ( TwoPair,
                   [ [2 @ H, 2 @ D, 3 @ H, 3 @ D, 5 @ H],
-                    [2 @ H, 2 @ D, 3 @ H, 3 @ D, 3 @ C]
+                    [2 @ H, 2 @ D, 3 @ H, 3 @ D, 3 @ C],
+                    [K @ D, K @ C, 2 @ C, 2 @ H], -- my own test 
+                    [Q @ H, K @ C, Q @ D, J @ H, J @ D], -- my own test 
+                    [2 @ H, 2 @ D, 2 @ H, 2 @ H, 6 @ H]
                   ],
-                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H]]
+                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
+                  [K @ D], -- my own test 
+                  [Q @ D, 2 @ C], -- my own test
+                  [J @ D, 4 @ C, 5 @ D], -- my own test 
+                  [A @ H, Q @ H, 4 @ D, 5 @ C] -- my own test 
+                  ]
                 ),
                 ( ThreeOfAKind,
-                  [[2 @ H, 2 @ D, 2 @ C, 3 @ D, 5 @ H]],
-                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H]]
+                  [[2 @ H, 2 @ D, 2 @ C, 3 @ D, 5 @ H],
+                  [K @ D, Q @ S, K @ H, K @ C] -- my own test 
+                  ],
+                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
+                  [2 @ H, K @ D, K @ H], -- my own test 
+                  [10 @ C, 4 @ H], -- my own test 
+                  [K @ C], -- my own test
+                  [3 @ C, 8 @ S, Q @ H, 8 @ H ] -- my own test 
+                  ]
                 ),
                 ( FourOfAKind,
                   [[2 @ H, 2 @ D, 2 @ C, 2 @ S, 5 @ H]],
@@ -90,32 +120,65 @@ testPartOne =
                 ),
                 ( Straight,
                   [ [2 @ H, 3 @ D, 4 @ C, 5 @ S, 6 @ H],
-                    [10 @ H, J @ H, Q @ H, K @ H, A @ H]
+                    [10 @ H, J @ H, Q @ H, K @ H, A @ H], 
+                    [A @ D, 2 @ D, 3 @ H, 4 @ C, 5 @ H], -- my own test 
+                    [10 @ D, J @ D, Q @ H, K @ C, A @ D], -- my own test 
+                    [6 @ D, 7 @ H, 8 @ C, 9 @ D, 10 @ C] -- my own test 
                   ],
-                  [[J @ H, Q @ D, K @ H, A @ H, 2 @ H]]
+                  [[J @ H, Q @ D, K @ H, A @ H, 2 @ H],
+                  [2 @ D, 3 @ H, 4 @ D, 5 @ C], -- my own test 
+                  [], -- my own test 
+                  [K @ S], -- my own test 
+                  [Q @ S, 5 @ H], -- my own test 
+                  [3 @ S, 4 @ H, 5 @ S, 6 @ D, 8 @ D], -- my own test 
+                  [7 @ D, 8 @ C, 10 @ H, 11 @ C], -- my own test 
+                  [9 @ D, J @ D, Q @ H, K @ D, A @ S], -- my own test 
+                  [Q @ S, K @ H, A @ D, 2 @ H, 3 @ C] -- my own test 
+                  ]
                 ),
                 ( Flush,
                   [ [2 @ H, 3 @ H, 4 @ H, 5 @ H, 6 @ H],
                     [10 @ H, J @ H, Q @ H, K @ H, A @ H]
                   ],
-                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H]]
+                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
+                  [2 @ C, 3 @ D], -- my own test 
+                  [4 @ D , Q @ D, K @ D, A @ D], -- my own test 
+                  [] -- my own test 
+                  ]
                 ),
                 ( FullHouse,
-                  [[2 @ H, 2 @ D, 2 @ C, 3 @ D, 3 @ H]],
+                  [[2 @ H, 2 @ D, 2 @ C, 3 @ D, 3 @ H],
+                  [K @ D, J @ H, K @ C, J @ S, K @ S],-- my own test 
+                  [3 @ D, 8 @ S, 3 @ S, 8 @ D, 8 @ C]-- my own test 
+                  ],
                   [ [2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
-                    [2 @ H, 2 @ D, 2 @ D, 3 @ C, 4 @ S]
+                    [2 @ H, 2 @ D, 2 @ D, 3 @ C, 4 @ S],
+                    [J @ D, J @ C, J @ H], -- my own test 
+                    [], -- my own test 
+                    [4 @ D, 4 @ C, 4 @ H, 4 @ S] -- my own test 
                   ]
                 ),
                 ( StraightFlush,
                   [ [2 @ H, 3 @ H, 4 @ H, 5 @ H, 6 @ H],
                     [10 @ H, J @ H, Q @ H, K @ H, A @ H]
                   ],
-                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H]]
+                  [[2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
+                  [7 @ D, 8 @ C, 10 @ H, 11 @ C], -- my own test 
+                  [] -- my own test
+                  ]
                 ),
                 ( RoyalFlush,
                   [[10 @ H, J @ H, Q @ H, K @ H, A @ H]],
                   [ [2 @ H, 3 @ D, 4 @ H, 5 @ H, 6 @ H],
-                    [Q @ H, K @ H, A @ H, 2 @ H, 3 @ H]
+                    [Q @ H, K @ H, A @ H, 2 @ H, 3 @ H],
+                    [], -- my own test 
+                    [4 @ D, 4 @ C, 4 @ H, 4 @ S], -- my own test 
+                    [Q @ S, 5 @ H], -- my own test 
+                    [3 @ S, 4 @ H, 5 @ S, 6 @ D, 8 @ D], -- my own test 
+                    [7 @ D, 8 @ C, 10 @ H, 11 @ C], -- my own test 
+                    [9 @ D, J @ D, Q @ H, K @ D, A @ S], -- my own test 
+                    [Q @ S, K @ H, A @ D, 2 @ H, 3 @ C] -- my own test 
+                    
                   ]
                 )
               ]
@@ -313,8 +376,8 @@ testPartFive =
             forAll gamePosition $
               \(m, c) ->
                 let Move m' c' = sensibleAI m c
-                 in scoreHand c' `shouldScore` scoreHand (highestScoringHand c)        
-                 ],
+                 in scoreHand c' `shouldScore` scoreHand (highestScoringHand c)
+        ],
       testGroup
         "Ex. 8: myAI"
         [ testCaseSteps "Plays Halatro" $
