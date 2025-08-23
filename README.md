@@ -13,7 +13,7 @@ This program was created as part of the coursework for the Functional Programmin
 
 
 ## Overview
-When undertaking the Functional Programming module, we completed the two courseworks. This is the 1st one. All the UI was abstracted away from us and we only had to implement the most interesting part, that is, the core logic of the game. All the code written by me is located in ``./src/CourseworkOne.hs`` file. The rest of the code was provided from the beginning by the module organiser. 
+When undertaking the Functional Programming module, we completed two courseworks. This is the 1st one. All the UI was abstracted away from us and we only had to implement the most interesting part, that is, the core logic of the Balatro game, so that a user could play the game themselves and also an AI that can play the game themselves. All the code written by me is located in ``./src/CourseworkOne.hs`` file. The rest of the code was provided from the beginning by the module organiser. 
 
 
 
